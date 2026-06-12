@@ -180,7 +180,6 @@
       const subject = document.getElementById('subject').value.trim();
       const message = document.getElementById('message').value.trim();
       
-      // Validation
       if (!name || !email || !subject || !message) {
         msgDiv.className = 'form-message error';
         msgDiv.textContent = 'Iltimos, barcha maydonlarni to\'ldiring!';
@@ -195,12 +194,10 @@
         return;
       }
       
-      // Save to localStorage (demo)
       const messages = JSON.parse(localStorage.getItem('contact_messages') || '[]');
       messages.push({ name, email, subject, message, date: new Date().toISOString() });
       localStorage.setItem('contact_messages', JSON.stringify(messages));
       
-      // Show success
       msgDiv.className = 'form-message success';
       msgDiv.textContent = 'Xabaringiz yuborildi. Rahmat!';
       form.reset();
@@ -211,7 +208,7 @@
     });
   }
 
-  // ========== SMOOTH SCROLL FOR ANCHOR LINKS ==========
+  // ========== SMOOTH SCROLL ==========
   document.querySelectorAll('.nav-menu a, .scroll-top').forEach(anchor => {
     anchor.addEventListener('click', function(e) {
       const hash = this.getAttribute('href');
